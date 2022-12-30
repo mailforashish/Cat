@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.catexam.app.R;
 import com.catexam.app.activity.CategoryActivity;
+import com.catexam.app.activity.PdfViewerActivity;
 import com.catexam.app.response.OptionList;
 
 import java.util.List;
@@ -32,7 +33,7 @@ public class PaperAdapter extends RecyclerView.Adapter<PaperAdapter.MyViewHolder
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.home_row, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.paper_row, parent, false);
         return new MyViewHolder(view);
 
     }
@@ -44,8 +45,8 @@ public class PaperAdapter extends RecyclerView.Adapter<PaperAdapter.MyViewHolder
             holder.cl_main.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(context, CategoryActivity.class);
-                    intent.putExtra("SelectedId", position + 1);
+                    Intent intent = new Intent(context, PdfViewerActivity.class);
+                    intent.putExtra("SelectedId", list.get(position).getPaperYear());
                     context.startActivity(intent);
                 }
             });
