@@ -1,5 +1,4 @@
 package com.catexam.app.activity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetManager;
@@ -7,23 +6,18 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-
 import android.util.Log;
 import android.view.WindowManager;
-
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.GridLayoutManager;
-
 import com.catexam.app.BuildConfig;
 import com.catexam.app.R;
 import com.catexam.app.adapter.PaperAdapter;
 import com.catexam.app.databinding.ActivityPaperBinding;
 import com.catexam.app.response.OptionList;
 import com.catexam.app.util.PaperListener;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -115,5 +109,4 @@ public class PaperActivity extends AppCompatActivity implements PaperListener {
         list2 = new OptionList(R.drawable.pdf6,"f.pdf");
         paperList.add(list2);
     }
-
 }

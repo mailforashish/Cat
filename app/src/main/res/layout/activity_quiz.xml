@@ -125,7 +125,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
-
             <TextView
                 android:id="@+id/tv_option_one"
                 android:layout_width="0dp"
@@ -193,9 +192,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_option_three"
                 tools:text="Option 4" />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
-
 
         <Button
             android:id="@+id/button_confirm_next"
@@ -230,6 +227,5 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button_confirm_next" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

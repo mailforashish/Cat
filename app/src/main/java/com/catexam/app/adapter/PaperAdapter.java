@@ -1,5 +1,4 @@
 package com.catexam.app.adapter;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,17 +6,13 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.catexam.app.R;
 import com.catexam.app.response.OptionList;
 import com.catexam.app.util.PaperListener;
-
 import java.util.List;
-
 
 public class PaperAdapter extends RecyclerView.Adapter<PaperAdapter.MyViewHolder> {
     List<OptionList> list;
@@ -35,7 +30,6 @@ public class PaperAdapter extends RecyclerView.Adapter<PaperAdapter.MyViewHolder
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.paper_row, parent, false);
         return new MyViewHolder(view);
-
     }
 
     @Override
@@ -49,13 +43,13 @@ public class PaperAdapter extends RecyclerView.Adapter<PaperAdapter.MyViewHolder
                 }
             });
         } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
     @Override
     public int getItemViewType(int position) {
         return list.size();
-
     }
 
     @Override

@@ -1,28 +1,19 @@
 package com.catexam.app.adapter;
-
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-
-
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
-
-
 import com.catexam.app.R;
 import com.catexam.app.activity.CategoryActivity;
 import com.catexam.app.response.OptionList;
-
 import java.util.List;
-
 
 public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.MyViewHolder> {
     List<OptionList> list;
@@ -60,7 +51,6 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.MyViewHold
     @Override
     public int getItemViewType(int position) {
         return list.size();
-
     }
 
     @Override
@@ -76,10 +66,8 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.MyViewHold
             super(view);
             iv_option = itemView.findViewById(R.id.iv_option);
             cl_main = itemView.findViewById(R.id.cl_main);
-
             Animation animation = AnimationUtils.loadAnimation(context, R.anim.swing_up_left);
             iv_option.startAnimation(animation);
-
         }
     }
 }

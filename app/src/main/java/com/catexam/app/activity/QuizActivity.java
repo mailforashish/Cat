@@ -1,30 +1,19 @@
 package com.catexam.app.activity;
-
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-
 import com.catexam.app.databinding.ActivityQuizBinding;
 import com.catexam.app.dialog.ScoreDialog;
 import com.catexam.app.response.DatabaseModel;
 import com.catexam.app.R;
 import com.catexam.app.util.DatabaseHelper;
-
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
@@ -47,7 +36,7 @@ public class QuizActivity extends AppCompatActivity {
     int answer;
     int mSelectedId;
     DatabaseHelper mDatabaseHelper;
-    boolean r1, r2, r3, r4;
+    boolean opt1, opt2, opt3, opt4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,7 +65,7 @@ public class QuizActivity extends AppCompatActivity {
         }
 
         public void optionOne() {
-            r1 = true;
+            opt1 = true;
             answer = 1;
             binding.tvOptionOne.setBackground(getResources().getDrawable(R.drawable.option_gray));
             binding.tvOptionTwo.setBackground(getResources().getDrawable(R.drawable.option_bg));
@@ -85,7 +74,7 @@ public class QuizActivity extends AppCompatActivity {
         }
 
         public void optionTwo() {
-            r2 = true;
+            opt2 = true;
             answer = 2;
             binding.tvOptionTwo.setBackground(getResources().getDrawable(R.drawable.option_gray));
             binding.tvOptionOne.setBackground(getResources().getDrawable(R.drawable.option_bg));
@@ -94,7 +83,7 @@ public class QuizActivity extends AppCompatActivity {
         }
 
         public void optionThree() {
-            r3 = true;
+            opt3 = true;
             answer = 3;
             binding.tvOptionThree.setBackground(getResources().getDrawable(R.drawable.option_gray));
             binding.tvOptionTwo.setBackground(getResources().getDrawable(R.drawable.option_bg));
@@ -103,7 +92,7 @@ public class QuizActivity extends AppCompatActivity {
         }
 
         public void optionFour() {
-            r4 = true;
+            opt4 = true;
             answer = 4;
             binding.tvOptionFour.setBackground(getResources().getDrawable(R.drawable.option_gray));
             binding.tvOptionTwo.setBackground(getResources().getDrawable(R.drawable.option_bg));
@@ -113,7 +102,7 @@ public class QuizActivity extends AppCompatActivity {
 
         public void btnConfirm() {
             if (!answered) {
-                if (r1 || r2 || r3 || r4) {
+                if (opt1 || opt2 || opt3 || opt4) {
                     CheckAnswer();
                 } else {
                     Toast.makeText(QuizActivity.this, "Please Select an Answer", Toast.LENGTH_SHORT).show();
@@ -126,7 +115,6 @@ public class QuizActivity extends AppCompatActivity {
         public void btnSolution() {
             binding.textViewQuestion.setText(currentQuestion.getExplaination());
         }
-
     }
 
     private void showNextQuestion() {
@@ -134,10 +122,10 @@ public class QuizActivity extends AppCompatActivity {
         binding.tvOptionTwo.setTextColor(textColorDefaultRb);
         binding.tvOptionThree.setTextColor(textColorDefaultRb);
         binding.tvOptionFour.setTextColor(textColorDefaultRb);
-        r4 = false;
-        r2 = false;
-        r3 = false;
-        r1 = false;
+        opt4 = false;
+        opt2 = false;
+        opt3 = false;
+        opt1 = false;
 
         binding.tvOptionOne.setBackgroundDrawable(getResources().getDrawable(R.drawable.option_bg));
         binding.tvOptionTwo.setBackgroundDrawable(getResources().getDrawable(R.drawable.option_bg));
@@ -161,7 +149,6 @@ public class QuizActivity extends AppCompatActivity {
         } else {
             showResult();
         }
-
     }
 
     private void startCountDown() {
@@ -240,7 +227,6 @@ public class QuizActivity extends AppCompatActivity {
         if (binding.buttonConfirmNext.getText().toString().equals("ShowResult")) {
             showResult();
         }
-
     }
 
     private void showResult() {
@@ -249,7 +235,6 @@ public class QuizActivity extends AppCompatActivity {
         String wrongAns = binding.textViewWrAnswer.getText().toString();
         int un_attempt = questionCountTotal - questionCounter;
         new ScoreDialog(QuizActivity.this, score, questionCount, wrongAns, un_attempt);
-
     }
 
 
@@ -269,6 +254,5 @@ public class QuizActivity extends AppCompatActivity {
             countDownTimer.cancel();
         }
     }
-
 
 }
