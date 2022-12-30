@@ -1,7 +1,6 @@
 package com.catexam.app.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,9 +13,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.catexam.app.R;
-import com.catexam.app.activity.CategoryActivity;
-import com.catexam.app.activity.PdfViewerActivity;
 import com.catexam.app.response.OptionList;
+import com.catexam.app.util.PaperListener;
 
 import java.util.List;
 
@@ -24,10 +22,12 @@ import java.util.List;
 public class PaperAdapter extends RecyclerView.Adapter<PaperAdapter.MyViewHolder> {
     List<OptionList> list;
     Context context;
+    PaperListener paperListener;
 
-    public PaperAdapter(Context context, List<OptionList> list) {
+    public PaperAdapter(Context context, List<OptionList> list, PaperListener paperListener) {
         this.context = context;
         this.list = list;
+        this.paperListener = paperListener;
     }
 
     @NonNull
@@ -45,9 +45,7 @@ public class PaperAdapter extends RecyclerView.Adapter<PaperAdapter.MyViewHolder
             holder.cl_main.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(context, PdfViewerActivity.class);
-                    intent.putExtra("SelectedId", list.get(position).getPaperYear());
-                    context.startActivity(intent);
+                    paperListener.getPaperClick(true, list.get(position).getPaperYear());
                 }
             });
         } catch (Exception e) {
@@ -73,7 +71,6 @@ public class PaperAdapter extends RecyclerView.Adapter<PaperAdapter.MyViewHolder
             super(view);
             iv_option = itemView.findViewById(R.id.iv_option);
             cl_main = itemView.findViewById(R.id.cl_main);
-
             Animation animation = AnimationUtils.loadAnimation(context, R.anim.swing_up_left);
             iv_option.startAnimation(animation);
 

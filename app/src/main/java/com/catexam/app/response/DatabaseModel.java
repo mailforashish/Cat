@@ -20,39 +20,9 @@ public class DatabaseModel {
     int que_id;
     int bookmark;
 
-    public DatabaseModel(int drawable, String color) {
-        this.drawable = drawable;
-        this.color = color;
-    }
-
-    public int drawable;
-    public String color;
-
     // default constructor
     public DatabaseModel() {
 
-    }
-
-// parameterized constructor
-
-
-    public DatabaseModel(int main_cat_id, String main_category, int index, int main_category_id,int isAttempted, String sub_category_title, String question, String option_1, String option_2, String option_3, String option_4, int answer, String explaination, int sub_category_id, int que_id, int bookmark) {
-        this.main_cat_id = main_cat_id;
-        this.main_category = main_category;
-        this.index = index;
-        this.isAttempted = isAttempted;
-        this.main_category_id = main_category_id;
-        this.sub_category_title = sub_category_title;
-        this.question = question;
-        this.option_1 = option_1;
-        this.option_2 = option_2;
-        this.option_3 = option_3;
-        this.option_4 = option_4;
-        this.answer = answer;
-        this.explaination = explaination;
-        this.sub_category_id = sub_category_id;
-        this.que_id = que_id;
-        this.bookmark = bookmark;
     }
 
     public int getMain_cat_id() {

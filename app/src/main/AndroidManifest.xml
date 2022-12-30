@@ -17,16 +17,18 @@
             android:name=".activity.PaperActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.PdfViewerActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".activity.CategoryActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.QuizActivity"
             android:screenOrientation="portrait" />
+
         <activity
             android:name=".activity.MainActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.Splash"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,6 +36,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
     </application>
 
 </manifest>

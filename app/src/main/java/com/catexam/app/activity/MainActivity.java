@@ -203,16 +203,13 @@ public class MainActivity extends AppCompatActivity {
         View viewInflated = LayoutInflater.from(this).inflate(R.layout.exist_custom_layout, null);
         builder.setView(viewInflated);
         final AlertDialog alert = builder.create();
-        TextView moreApp = (TextView) viewInflated.findViewById(R.id.moreBTN);
-        // TextView askLatter = (TextView) viewInflated.findViewById(R.id.nagetiveBTN);
-        final TextView rateAs = (TextView) viewInflated.findViewById(R.id.positiveBTN);
-        final RatingBar ratingBar = (RatingBar) viewInflated.findViewById(R.id.ratebar);
+        TextView moreApp = viewInflated.findViewById(R.id.tv_moreApp);
+        TextView rateAs = viewInflated.findViewById(R.id.tv_later);
+        final RatingBar ratingBar = viewInflated.findViewById(R.id.ratingBar);
         ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
-            public void onRatingChanged(RatingBar ratingBar, float rating,
-                                        boolean fromUser) {
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
             }
         });
-
 
         moreApp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -225,9 +222,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 alert.dismiss();
-                finishAffinity();
+                finish();
                 moveTaskToBack(true);
-
             }
         });
 
