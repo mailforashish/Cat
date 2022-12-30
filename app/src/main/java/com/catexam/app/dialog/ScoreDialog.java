@@ -1,24 +1,16 @@
 package com.catexam.app.dialog;
-
-import android.Manifest;
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
-
 import com.catexam.app.R;
 import com.catexam.app.activity.QuizActivity;
 import com.catexam.app.databinding.DialogScoreBinding;
 import com.catexam.app.util.HideStatus;
-
 
 public class ScoreDialog extends Dialog {
     DialogScoreBinding binding;
@@ -51,7 +43,6 @@ public class ScoreDialog extends Dialog {
         binding.tvWrongAns.setText(wrongAns);
 
         show();
-
     }
 
     public class EventHandler {
@@ -65,9 +56,5 @@ public class ScoreDialog extends Dialog {
             context.finish();
             dismiss();
         }
-
-
     }
-
-
 }

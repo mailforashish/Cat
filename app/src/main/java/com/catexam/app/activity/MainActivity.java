@@ -1,5 +1,4 @@
 package com.catexam.app.activity;
-
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
@@ -14,7 +13,6 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.RatingBar;
 import android.widget.TextView;
-
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,7 +22,6 @@ import androidx.databinding.DataBindingUtil;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.viewpager.widget.ViewPager;
-
 import com.catexam.app.R;
 import com.catexam.app.adapter.BannerAdapter;
 import com.catexam.app.adapter.OptionAdapter;
@@ -32,17 +29,14 @@ import com.catexam.app.databinding.ActivityMainBinding;
 import com.catexam.app.response.BannerResult;
 import com.catexam.app.response.OptionList;
 import com.catexam.app.util.DatabaseHelper;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
-
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
 public class MainActivity extends AppCompatActivity {
-
     ActivityMainBinding binding;
     Context context = this;
     ViewPager viewPager;
@@ -84,8 +78,6 @@ public class MainActivity extends AppCompatActivity {
         };
         timer = new Timer();
         timer.schedule(timerTask, 3000, 3000);
-
-
         // DatabaseHelper DbHelper = new DatabaseHelper(this);
         //first time set id according to db
         // mainCategory = mDatabaseHelper.getParent(1);
@@ -96,8 +88,6 @@ public class MainActivity extends AppCompatActivity {
         } else {
             requestPermission();
         }
-
-
     }
 
     public class EventHandler {
@@ -156,7 +146,6 @@ public class MainActivity extends AppCompatActivity {
         list2 = new OptionList(R.drawable.exam4);
         optionLists.add(list2);
 
-
         BannerResult bannerResult = new BannerResult(R.drawable.banner1);
         bannerList.add(bannerResult);
         bannerResult = new BannerResult(R.drawable.banner2);
@@ -203,16 +192,13 @@ public class MainActivity extends AppCompatActivity {
         View viewInflated = LayoutInflater.from(this).inflate(R.layout.exist_custom_layout, null);
         builder.setView(viewInflated);
         final AlertDialog alert = builder.create();
-        TextView moreApp = (TextView) viewInflated.findViewById(R.id.moreBTN);
-        // TextView askLatter = (TextView) viewInflated.findViewById(R.id.nagetiveBTN);
-        final TextView rateAs = (TextView) viewInflated.findViewById(R.id.positiveBTN);
-        final RatingBar ratingBar = (RatingBar) viewInflated.findViewById(R.id.ratebar);
+        TextView moreApp = viewInflated.findViewById(R.id.tv_moreApp);
+        TextView rateAs = viewInflated.findViewById(R.id.tv_later);
+        final RatingBar ratingBar = viewInflated.findViewById(R.id.ratingBar);
         ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
-            public void onRatingChanged(RatingBar ratingBar, float rating,
-                                        boolean fromUser) {
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
             }
         });
-
 
         moreApp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -225,9 +211,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 alert.dismiss();
-                finishAffinity();
+                finish();
                 moveTaskToBack(true);
-
             }
         });
 

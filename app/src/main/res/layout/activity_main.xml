@@ -58,12 +58,11 @@
                         android:paddingLeft="5dp"
                         android:text="Welcome In Cat Examination"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="20sp"
+                        android:textSize="@dimen/_18ssp"
                         app:layout_constraintBottom_toBottomOf="@+id/image_left"
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toEndOf="@+id/image_left"
                         app:layout_constraintTop_toTopOf="@id/image_left" />
-
 
                     <androidx.viewpager.widget.ViewPager
                         android:id="@+id/myViewPager"
@@ -104,8 +103,6 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         app:layout_constraintGuide_percent="0.97" />
-
-
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
@@ -215,6 +212,5 @@
                 </LinearLayout>
             </com.google.android.material.navigation.NavigationView>
         </androidx.drawerlayout.widget.DrawerLayout>
-
     </LinearLayout>
 </layout>

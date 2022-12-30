@@ -1,72 +1,73 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_gravity="center_horizontal"
-    android:orientation="vertical">
+    app:cardCornerRadius="0dp">
 
-    <androidx.cardview.widget.CardView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/rateusDialoglayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="visible"
-        app:cardCornerRadius="4dp">
+        android:paddingBottom="@dimen/_10sdp">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/tv_enjoy"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="center"
+            android:justificationMode="inter_word"
+            android:padding="10dp"
+            android:text="@string/exit_quote"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="90dp"
-                android:background="@color/colorPrimary"
-                android:orientation="vertical">
+        <RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="13dp"
+            android:layout_marginBottom="3dp"
+            android:padding="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_enjoy" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:padding="10dp"
-                    android:layout_marginLeft="18dp"
-                    android:layout_marginRight="7dp"
-                    android:text="@string/exit_quote"
-                    android:textColor="@android:color/white"
-                    android:textSize="17dp" />
-            </LinearLayout>
+        <TextView
+            android:id="@+id/tv_moreApp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:background="#00000000"
+            android:fontFamily="@font/roboto_bold"
+            android:padding="4dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:text="More Apps"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_later"
+            app:layout_constraintEnd_toStartOf="@+id/tv_later"
+            app:layout_constraintTop_toTopOf="@+id/tv_later" />
 
-            <RatingBar
-                android:id="@+id/ratebar"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginBottom="3dp"
-                android:layout_marginTop="13dp"
-                android:padding="4dp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="end">
-
-                <Button
-                    android:id="@+id/moreBTN"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="#00000000"
-                    android:padding="4dp"
-                    android:text="More Apps"
-                    android:textSize="16dp" />
-
-                <Button
-                    android:id="@+id/positiveBTN"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="#00000000"
-                    android:padding="4dp"
-                    android:text="Later"
-                    android:textSize="17dp" />
-            </LinearLayout>
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-</LinearLayout>
+        <TextView
+            android:id="@+id/tv_later"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:background="#00000000"
+            android:fontFamily="@font/roboto_bold"
+            android:padding="4dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:text="Later"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
